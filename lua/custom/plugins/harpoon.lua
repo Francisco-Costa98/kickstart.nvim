@@ -30,12 +30,17 @@ return {
     end)
 
     -- Toggle previous & next buffers stored within Harpoon list
-    vim.keymap.set('n', '<C-S-P>', function()
+    vim.keymap.set('n', '<leader>hp', function()
       harpoon:list():prev()
-    end)
-    vim.keymap.set('n', '<C-S-N>', function()
+    end, { desc = 'Toggle [H]arpoon [P]revious file' })
+    vim.keymap.set('n', '<leader>hn', function()
       harpoon:list():next()
-    end)
+    end, { desc = 'Toggle [H]arpoon [N]ext file' })
+
+    -- Clear Harpoon list
+    vim.keymap.set('n', '<leader>hd', function()
+      harpoon:list():clear()
+    end, { desc = 'Toggle [H]arpoon [D]elete list' })
 
     -- basic telescope configuration
     local conf = require('telescope.config').values
